@@ -4,7 +4,7 @@ from checkov.terraform.checks.resource.base_resource_check import BaseResourceCh
 
 class CloudflareZoneHttps(BaseResourceCheck):
     def __init__(self):
-        name = f"Ensure Cloudflare zone always uses HTTPS"
+        name = "Ensure Cloudflare zone always uses HTTPS"
         check_id = 'CKV_CLOUDFLARE_CUSTOM_1'
         categories = [CheckCategories.NETWORKING]
         supported_resources = ['cloudflare_zone_settings_override']

@@ -4,7 +4,7 @@ from checkov.terraform.checks.resource.base_resource_check import BaseResourceCh
 
 class ResourceHasTags(BaseResourceCheck):
     def __init__(self):
-        name = f"Ensure every taggable resource is tagged"
+        name = "Ensure every taggable resource is tagged"
         check_id = 'CKV_AWS_CUSTOM_1'
         categories = [CheckCategories.CONVENTION]
         supported_resources = [

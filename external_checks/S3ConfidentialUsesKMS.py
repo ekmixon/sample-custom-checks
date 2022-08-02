@@ -12,14 +12,12 @@ class S3ConfidentialUsesKMS(BaseResourceCheck):
 
     def scan_resource_conf(self, conf):
 
-        # If the tag isn't present or not the given values then this is moot.
-        if 'tags' in conf:
-            tags = conf['tags']
-            if self.get_tag_value('DataClassification', tags) not in ['Confidential', 'Highly confidential']:
-                return CheckResult.UNKNOWN
-        else:
+        if 'tags' not in conf:
             return CheckResult.UNKNOWN
 
+        tags = conf['tags']
+        if self.get_tag_value('DataClassification', tags) not in ['Confidential', 'Highly confidential']:
+            return CheckResult.UNKNOWN
         if 'server_side_encryption_configuration' not in conf:
             return CheckResult.FAILED
 
